@@ -24,27 +24,45 @@ def index():
 @app.route("/addrecipe",  methods=["GET", "POST"])
 def addrecipe():
     if request.method == 'POST':
-         print("Hello is there anybody there!")  
-         print(request.form['name'])
-         print(request.form['country'])
-         print(request.form['DOB'])
-         print(request.form['email'])
-         print(request.form['CuisineType'])
-         try:
-            # Run a query
-            with connection.cursor() as cursor:
-                sql = "SELECT * FROM WorldCuisine;"
+        if request.form["btn"] == "Sign in":
+            # insert command!
+             with connection.cursor() as cursor:
+                sql = """INSERT INTO Users
+                ( User_name,Dateofbirth,Email,Country) 
+                VALUES ('{}', '{}', '{}', '{}');""".format(request.form['name'],
+                request.form['DOB'],request.form['email'],request.form['country'])
+                cursor.execute(sql)
+                connection.commit()
+                flash("Thanks {} , for submitting your information".format
+                (request.form["name"]))
+        else:
+            with connection.cursor(pymysql.cursors.DictCursor) as cursor:
+                sql = """ SELECT MAX(User_ID) FROM Users"""
                 cursor.execute(sql)
                 result = cursor.fetchall()
-                print(result)
-         finally:
-         # Close the connection, regardless of whether or not the above was successful
-            connection.close()
-    return render_template("addrecipe.html", page_title="addrecipe")
+                last_insert_id = result[0]['MAX(User_ID)']
+                
+                sqlinsert = """INSERT INTO Recipes 
+                ( Recipe_name, Ingredients,Instructions,Category_ID, 
+                WorlCuidine_ID, User_ID, Allergen_ID) 
+                VALUES ('{}', '{}', '{}', {}, {}, {}, {});""".format(request.form['recipe'],
+                request.form['ingredients'],request.form['instructions'], 
+                request.form['mealtype'],request.form['cuisinetype'], 
+                last_insert_id,request.form['allergen'])
+           
+                cursor.execute(sqlinsert)
+                connection.commit()
+    return render_template("addrecipe.html")
+            # commit command need cause you are changing some data in pipline python3 my_db.py
+        # finally:
+        #     connection.close()                        
 
-@app.route("/register")
-def register():
-    return render_template("register.html")
+    
+    
+
+# @app.route("/register")
+# def register():
+#     return render_template("register.html")
 
 
 

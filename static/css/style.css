@@ -6,3 +6,7 @@
 body {
     background-color: red;
 }
+
+#recipe_form{
+    display:none;
+}

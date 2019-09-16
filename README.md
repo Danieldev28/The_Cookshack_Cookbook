@@ -31,4 +31,10 @@ Happy coding!
 
 <!--https://startbootstrap.com/previews/business-casual/ resource-->
 <!--https://codeburst.io/alter-table-examples-with-mysql-beginner-series-7e8ca2a58ce2-->
-<!--mysqldatabase refference-->
+<!--mysqldatabase refference-->\
+
+modify and cleaned up code
+added run.py file apps
+edited apps
+downloaded mysql
+create query

@@ -9,7 +9,6 @@
   </ul>
   {% endblock %} {% block content %}
 
-
   <!---------A message to the user, information-->
   <h1 class="user-recipe-title">Add Your Own Recipe</h1>
   <section class="page-section cta">
@@ -31,7 +30,7 @@
   
   <!--------- Submit user personal information form------->
   <!----------------------------------------------->
-  <form method ="POST">
+  <form method ="POST"  id="userform">
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputtext">Name</label>
@@ -52,13 +51,16 @@
         <input type="text" name="country" class="form-control" id="inputcountry" placeholder="Country">
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
+    <input type="submit" name="btn" class="btn btn-primary" value="Sign in">
   </form>
+  
+  
   <hr>
+
 
   <!-------------------------------The user information recipe form----->
 
-  <form method="POST" id="recipe_form">
+  <form method="POST" style="display:none;" id="recipe_form">
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="inputcuisine">Cuisine Type</label>
@@ -96,7 +98,12 @@
       </select>
       </div>
     </div>
-
+  <div class="form-group">
+      <label for="recipename">Recipe Name</label>
+      <input type="text" name="recipe" class="form-control" id="inputrecipe" placeholder="Recipe Name">
+    </div>
+ 
+      
     <div class="form-group">
       <label for="inputingredients">Ingredients</label>
       <textarea form="recipe_form" name="ingredients" class="form-control" id="inputingredients" placeholder="Ingredients">
@@ -107,8 +114,16 @@
       <textarea form="recipe_form" name="instructions" class="form-control" id="inputinstructions" placeholder="Instructions">
       </textarea>
     </div>
-    <button type="submit" class="btn btn-primary">+ Add New Recipe</button>
+    <input type="submit" name="btn" class="btn btn-primary" value="+ Add New Recipe">
   </form>
+  <div class="row">
+    {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+    <script>
+    document.getElementById("recipe_form").style.display="block";
+    $("#userform").toggle();
+    </script>
+    {% endfor %} {% endif %} {% endwith %}
+    </div>
 
   <!----------------------Our most pupular recipes for ideas---->
   <!------------------------------------------------------------>
@@ -170,3 +185,5 @@
     </div>
   </section>
   {% endblock %}
+  
+  
