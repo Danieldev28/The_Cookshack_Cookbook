@@ -77,11 +77,11 @@ if __name__=="__main__":
 
 # app.config['MAIL_SERVER']='smtp.gmail.com'
 # app.config['MAIL_PORT']= 465
-# app.config['MAIL_USERNAME'] = 'digitalclickmultiplier@gmail.com'
-# app.config['MAIL_PASSWORD'] = 'Dan8pzh4p27'
+# app.config['MAIL_USERNAME'] = ''
+# app.config['MAIL_PASSWORD'] = ''
 # app.config['MAIL_USE_TLS'] = False
 # app.config['MAIL_USE_SSL'] = True
-# app.config['MAIL_DEFAULT_SENDER'] ='digitalclickmultiplier@gmail.com.com'
+# app.config['MAIL_DEFAULT_SENDER'] =''
 # mail = Mail(app)
 
 
