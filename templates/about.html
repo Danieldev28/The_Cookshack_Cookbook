@@ -8,35 +8,18 @@
 </ul>
 {% endblock %} {% block content %}
 
-<!--card to dipsay full recipe to user to use edit modify boostrap theme-->
-<div class="card mb-3">
-  <img src="/static/uploads/images/{{recipe.Images}}" class="card-img-top" alt="Profile image for {{recipe.name}}">
+<!--card to dipsay full recipe to user to use edit modify boostrap theme--> 
+<!--do something wih this card size-->
+<div class="card mb-2">
+  <img src="/static/uploads/images/{{recipe.Images}}" class="card-img-top" style="height:400px" alt="Profile image for {{recipe.name}}">
   <div class="card-body">
-    <h5 class="card-title">{{ recipe.Recipe_name }}</h5>
-    <p class="card-text">{{recipe.Ingredients}}</p>
-    <p class="card-text">{{recipe.Instructions}}</p>
-    <p class="card-text">Allergen: {{recipe.Allergen_name}}</p>
-    <p class="card-text">Cuisine Type: {{recipe.WorldCuisine_name}}</p>
+    <h5 class="card-title"><strong>Recipe Name:</strong> {{ recipe.Recipe_name }}</h5>
+    <p class="card-text"><strong>Ingredients:</strong> {{recipe.Ingredients}}</p>
+    <p class="card-text"><strong>Instructions:</strong> {{recipe.Instructions}}</p>
+    <p class="card-text"><strong>Allergen:</strong> {{recipe.Allergen_name}}</p>
+    <p class="card-text"><strong>Cuisine Type:</strong> {{recipe.WorldCuisine_name}}</p>
     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
   </div>
 </div>
 
-<!--<img src="..." class="card-img-top" alt="...">-->
-<!--</div>-->
-<!--end of card-->
-
-<!--<div class="row">-->
-<!--  <div class="col-md-5">-->
-<!--    <img src="/static/uploads/images/{{recipe.Images}}" alt="Profile image for {{recipe.name}}" height='300px' width='300px' />-->
-<!--    <h2 class="col-md-7">{{ recipe.Recipe_name }}</h2>-->
-<!--  </div>-->
-<!--</div>-->
-
-<!--<div class="col-md-12">-->
-<!--  <p>{{ recipe.Ingredients }}</p>-->
-<!--  <p>{{ recipe.Instructions }}</p>-->
-<!--  <p>{{ recipe.Allergen }}</p>-->
-<!--  <p>{{ recipe.Category}}</p>-->
-<!--  <p>{{ recipe.WorldCuisine}}</p>-->
-<!--</div>-->
 {% endblock %}

@@ -16,9 +16,9 @@
   <link rel="stylesheet" href="{{url_for('static' , filename= 'css/modern-business.css')}}" type="text/css" />
   <link rel="stylesheet" href="{{url_for('static' , filename= 'vendor/bootstrap/css/bootstrap.min.css')}}" type="text/css" />
   <link rel="stylesheet" type="text/css" href="{{url_for('static' , filename= 'css/style.css')}}">
-
   <title class="main-cite-heading">The Cookshack Cookbook</title>
 </head>
+
 <!-- Navigation -->
 
 <body>
@@ -75,7 +75,7 @@
           <div class="carousel-caption d-none d-md-block">
 
             <h3>Basil penne</h3>
-            <p>Basil and penne, topped with cheessy goodness.</p>
+            <p>Basil and Penne, topped with cheessy goodness.</p>
           </div>
         </div>
       </div>
@@ -98,22 +98,49 @@
     <h1 class="my-4">Welcome To Cookshack</h1>
 
     <!--<h2>Portfolio Heading</h2>-->
+    <!--do something with this car size limit image size-->
     <div class="row backdrop-image">
       {% for item in recipe_data %}
 
       <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="/static/uploads/images/{{item.Images}}" alt=""></a>
+          <a href="#"><img class="card-img-top" src="/static/uploads/images/{{item.Images}}" style="height:200px" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
               <a href="/recipe/{{item.Recipe_name}}">{{item.Recipe_name}}</a>
               <h4>By: {{item.User_name}}</h4>
+              <h6>Allergen: {{item.Allergen_name}}</h6>
+              <h6>Category: {{item.Category_name}}</h6>
+              <h6>Cusine Type: {{item.WorldCuisine_name}}</h6>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+
+  <div class="container-fluid" style="text-align: center;background-image: url('static/images/assorted-fruits-close-up-colorful-2955817.jpg'); background-position: center;background-repeat: no-repeat; background-size: cover;">
+
+    <h3 style="color:white; padding-top:20px;"> #1 Editor's Choice Feature Desserts <i class="fas fa-certificate" style="color:white;"></i></h3>
+
+    <!--<h2>Portfolio Heading</h2>-->
+    <!--do something with this car size limit image size-->
+    <div class="row">
+      {% for item in dessert %}
+      <div class="col-lg-6 col-sm-6 portfolio-item">
+        <div class="card" style="width: 18rem; margin: 0 auto;float: none;margin-bottom: 10px;margin-top: 10px;">
+          <img class="card-img-top" src="/static/uploads/images/{{item.Images}}" alt="DESSERT">
+          <div class="card-body">
+            <h2>{{item.Recipe_name}}</h2>
+            <p class="card-text">
+              <h4>By: {{item.User_name}}</h4>
               <br>
-              <h4>Allergen: {{item.Allergen_name}}</h4>
+              <h6>Allergen: {{item.Allergen_name}}</h6>
               <br>
-              <h4>Category: {{item.Category_name}}</h4>
+              <h6>Category: {{item.Category_name}}</h6>
               <br>
-              <h4>Cusine Type: {{item.WorldCuisine_name}}</h4>
+              <h6>Cusine Type: {{item.WorldCuisine_name}}</h6>
           </div>
         </div>
       </div>
@@ -123,18 +150,7 @@
 
   </div>
 
-
-  <div class="carousel-inner" role="listbox">
-    <!-- Slide One - Set the background image for this slide in the line below -->
-    <div class="carousel-item active" style="background-image: url('static/images/assorted-fruits-close-up-colorful-2955817.jpg')">
-      <div class="carousel-caption d-none d-md-block">
-        <h3>Fruit Cups</h3>
-        <p>Assorted fruit parfait paradise.</p>
-      </div>
-    </div>
-  </div>
-
-
+  <!-------------------------------------------------------->
 
   <!--------------------- Footer -->
 
@@ -145,7 +161,7 @@
     </div>
 
     <!--Search Bar----->
-    <!--Come back and fix this link for style alignment or delete-->
+    <!--Come back and fix this link for style alignment add to wanted features list-->
     <div class="col-md-6">
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control form-control-lg mr-sm-0 col-8
@@ -154,8 +170,6 @@
         <button class="btn btn-light btn-lg my-2 my-sm-0 col-2 border-left-0" style="border-radius: 0px 5px 5px 0px;" type="submit"><i class="fas text-danger fa-search"></i></button>
       </form>
     </div>
-
-
     <!-- /.container -->
   </footer>
 

@@ -7,7 +7,6 @@ from flask_mail import Mail, Message
 app = Flask(__name__)
 app.secret_key= "secret_word"
 app.config['IMAGE_UPLOADS'] = "static/uploads/images"
-# username = os.getenv('C9_USER')
 
 # ----For connectionto pymysql database---?
 # # Connect to the database
@@ -17,15 +16,6 @@ connection = pymysql.connect(host='my-database-class.crgear1afurv.ca-central-1.r
                              password='12345678',
                              db='Cookshack')
                              
-
-
-# connection = pymysql.connect(host='localhost',
-#                              user=username,
-#                              password='',
-#                              db='Cookshack')
-
-
-
 
 @app.route("/")
 def index():
@@ -38,8 +28,17 @@ def index():
             list_of_recipes = []
             for item in cursor:
                 list_of_recipes.append(item)
-            print(list_of_recipes, "list_of_recipes")
-    return render_template("index.html", recipe_data = list_of_recipes)
+                
+            sql_dessert = """SELECT Recipes.Images, Users.User_name, Recipes.Recipe_name,Allergens.Allergen_name, Categories.Category_name, WorldCuisine.WorldCuisine_name FROM Recipes 
+            	INNER JOIN Users ON Users.User_ID = Recipes.User_ID INNER JOIN Allergens ON Allergens.Allergen_ID = Recipes.Allergen_ID 
+            	INNER JOIN Categories ON Categories.Category_ID = Recipes.Category_ID 
+            	INNER JOIN WorldCuisine ON Recipes.WorldCuisine_ID = WorldCuisine.WorldCuisine_ID
+            	where Categories.Category_ID=5;"""
+            cursor.execute(sql_dessert)
+            list_of_recipes_dessert = []
+            for item in cursor:
+                list_of_recipes_dessert.append(item)
+    return render_template("index.html", recipe_data = list_of_recipes, dessert = list_of_recipes_dessert)
     
 @app.route("/addrecipe",  methods=["GET", "POST"])
 def addrecipe():
@@ -131,36 +130,6 @@ if __name__=="__main__":
 
 
 
-# mail server-DO NOT DELETE-----
-
-# https://myaccount.google.com/lesssecureapps
-
-# app.config['MAIL_SERVER']='smtp.gmail.com'
-# app.config['MAIL_PORT']= 465
-# app.config['MAIL_USERNAME'] = 'digitalclickmultiplier@gmail.com'
-# app.config['MAIL_PASSWORD'] = ''
-# app.config['MAIL_USE_TLS'] = False
-# app.config['MAIL_USE_SSL'] = True
-# app.config['MAIL_DEFAULT_SENDER'] ='digitalclickmultiplier@gmail.com.com'
-# mail = Mail(app)
-
-
-
-
-# @app.route("/")
-# def index():
-#     msg = Message('Mail test', recipients = ['digitalclickmultiplier@gmail.com'])
-#     msg.body ="This is a mail testing email"
-#     # msg.html =
-#     mail.send(msg)
-#     return "Sent"
-#     # render_template("index.html")
- 
-#  -----------------serpate code dont use together-->
- # commit command need cause you are changing some data in pipline python3 my_db.py
-        # finally:
-        #     connection.close()  
-# -------mail----DO NOT DELETE---
 
 
 
