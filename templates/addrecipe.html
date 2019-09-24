@@ -1,80 +1,78 @@
-{% extends 'base.html' %}
-<{% block menu %} <ul class="navbar-nav ml-auto">
+{% extends 'base.html' %} {% block menu %}
+<ul class="navbar-nav ml-auto">
   <li class="nav-item">
     <a class="nav-link" href="/">Home</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{{url_for('register')}}"> Register</a>
-  </li>
-  </ul>
-  {% endblock %} {% block content %}
+</ul>
+{% endblock %} {% block content %}
 
-  <!---------A message to the user, information-->
-  <h1 class="user-recipe-title">Add Your Own Recipe</h1>
-  <section class="page-section cta">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-9 mx-auto">
-          <div class="cta-inner text-center rounded">
-            <h2 class="section-heading mb-4">
-              <span class="section-heading-upper">Our Promise</span>
-              <span class="section-heading-lower">To You</span>
-            </h2>
-            <p class="mb-0">When you walk into our shop to start your day, we are dedicated to providing you with friendly service, a welcoming atmosphere, and above all else, excellent products made with the highest quality ingredients. If you are not satisfied, please
-              let us know and we will do whatever we can to make things right!</p>
-          </div>
+<!---------A message to the user, information-->
+<h1 class="user-recipe-title">Add Your Own Recipe</h1>
+<section class="page-section cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner text-center rounded">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-upper">Our Promise</span>
+            <span class="section-heading-lower">To You</span>
+          </h2>
+          <p class="mb-0">When you navigate to our community website to start your cooking journey, we are dedicated to providing you with friendly service, a welcoming atmosphere, and above all else, excellent products made with the highest quality ingredients. If you are not satisfied, please
+            let us know and we will do whatever we can to make things right!</p>
         </div>
       </div>
     </div>
-  </section>
-  
-  <!--------- Submit user personal information form------->
-  <!----------------------------------------------->
-  <form method ="POST"  id="userform">
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputtext">Name</label>
-        <input type="text" name="name" class="form-control" id="inputtext" placeholder="Name">
-      </div>
-      <div class="form-group col-md-6">
-        <label for="inputEmail">Email</label>
-        <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
-      </div>
+  </div>
+</section>
+
+<!--------- Submit user personal information form------->
+<!----------------------------------------------->
+<form method="POST" id="userform">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputtext">Name</label>
+      <input type="text" name="name" class="form-control" id="inputtext" placeholder="Name">
     </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputbirthdate">Date of Birth</label>
-        <input type="date" name="DOB" class="form-control" id="inputbirthdate" placeholder="DOB">
-      </div>
-      <div class="form-group col-md-6">
-        <label for="inputcountry">Country</label>
-        <input type="text" name="country" class="form-control" id="inputcountry" placeholder="Country">
-      </div>
+    
+    <div class="form-group col-md-6">
+      <label for="inputEmail">Email</label>
+      <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
     </div>
-    <input type="submit" name="btn" class="btn btn-primary" value="Sign in">
-  </form>
+  </div>
   
-  
-  <hr>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputbirthdate">Date of Birth</label>
+      <input type="date" name="DOB" class="form-control" id="inputbirthdate" placeholder="DOB">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputcountry">Country</label>
+      <input type="text" name="country" class="form-control" id="inputcountry" placeholder="Country">
+    </div>
+  </div>
+  <input type="submit" name="btn" class="btn btn-primary" value="Sign in">
+</form>
 
+<hr>
 
-  <!-------------------------------The user information recipe form----->
+<!-------------------------------The user information recipe form----->
 
-  <form method="POST" style="display:none;" id="recipe_form">
-    <div class="form-row">
-      <div class="form-group col-md-4">
-        <label for="inputcuisine">Cuisine Type</label>
-        <select id="inputcuisine" name="cuisinetype" class="form-control">
+<form method="POST" style="display:none;" id="recipe_form" enctype='multipart/form-data'>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputcuisine">Cuisine Type</label>
+      <select id="inputcuisine" name="cuisinetype" class="form-control">
         <option selected>Choose...</option>
         <option value="1">Mexican</option>
         <option value="2">Asian</option>
         <option value="3">Indian</option>
         <option value="4">Italian</option>
       </select>
-      </div>
-      <div class="form-group col-md-4">
-        <label for="inputallergen">Allergen</label>
-        <select id="inputallergen" name="allergen" class="form-control">
+    </div>
+   
+    <div class="form-group col-md-4">
+      <label for="inputallergen">Allergen</label>
+      <select id="inputallergen" name="allergen" class="form-control">
         <option selected>Choose...</option>
         <option value= "1">Dairy</option>
         <option value= "2">Wheat</option>
@@ -85,10 +83,11 @@
         <option value= "7">Fish</option>
         <option value= "8">Soy</option>
       </select>
-      </div>
-      <div class="form-group col-md-4">
-        <label for="inputmealtype">Meal Type</label>
-        <select id="inputmealtype" name="mealtype" class="form-control">
+    </div>
+    
+    <div class="form-group col-md-4">
+      <label for="inputmealtype">Meal Type</label>
+      <select id="inputmealtype" name="mealtype" class="form-control">
         <option selected>Choose...</option>
         <option value="1">Breakfast</option>
         <option value="2">Lunch</option>
@@ -96,94 +95,89 @@
         <option value="4">Drink</option>
         <option value="5">Dessert</option>
       </select>
-      </div>
     </div>
-  <div class="form-group">
-      <label for="recipename">Recipe Name</label>
-      <input type="text" name="recipe" class="form-control" id="inputrecipe" placeholder="Recipe Name">
-    </div>
+  </div>
  
-      
-    <div class="form-group">
-      <label for="inputingredients">Ingredients</label>
-      <textarea form="recipe_form" name="ingredients" class="form-control" id="inputingredients" placeholder="Ingredients">
-       </textarea>
-    </div>
-    <div class="form-group">
-      <label for="inputinstructions">Instructions</label>
-      <textarea form="recipe_form" name="instructions" class="form-control" id="inputinstructions" placeholder="Instructions">
-      </textarea>
-    </div>
-    <input type="submit" name="btn" class="btn btn-primary" value="+ Add New Recipe">
-  </form>
-  <div class="row">
-    {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
-    <script>
-    document.getElementById("recipe_form").style.display="block";
-    $("#userform").toggle();
-    </script>
-    {% endfor %} {% endif %} {% endwith %}
-    </div>
+  <div class="form-group">
+    <label for="recipename">Recipe Name</label>
+    <input type="text" name="recipe" class="form-control" id="inputrecipe" placeholder="Recipe Name">
+  </div>
 
-  <!----------------------Our most pupular recipes for ideas---->
-  <!------------------------------------------------------------>
-  <br>
-  <h1>
-    Most popular recipes
-  </h1>  
-  <div class="row">
-    <div class="col-lg-4 mb-4">
-      <div class="card h-100">
-        <h4 class="card-header">Card Title</h4>
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-primary">Learn More</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 mb-4">
-      <div class="card h-100">
-        <h4 class="card-header">Card Title</h4>
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-primary">Learn More</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 mb-4">
-      <div class="card h-100">
-        <h4 class="card-header">Card Title</h4>
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-primary">Learn More</a>
+  <div class="form-group">
+    <label for="inputingredients">Ingredients</label>
+    <textarea form="recipe_form" name="ingredients" class="form-control" id="inputingredients" placeholder="Ingredients">
+       </textarea>
+  </div>
+  <div class="form-group">
+    <label for="inputinstructions">Instructions</label>
+    <textarea form="recipe_form" name="instructions" class="form-control" id="inputinstructions" placeholder="Instructions">
+      </textarea>
+  </div>
+  
+  <!--Upload a file to display with your recipe!-->
+  <div class="form-group row">
+    <label class="col-lg-2 col-form-label font-weight-semibold">Upload Picture</label>
+    <input type="file" name="picture" class="file-input" data-browse-class="btn btn-primary btn-block" data-show-remove="true" data-show-caption="true" data-show-upload="false" data-fouc>
+  </div>
+  <input type="submit" name="btn" class="btn btn-primary" value="+ Add New Recipe">
+</form>
+
+<div class="row">
+  {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+  <script>
+    document.getElementById("recipe_form").style.display = "block";
+    $("#userform").toggle();
+  </script>
+  {% endfor %} {% endif %} {% endwith %}
+</div>
+<br>
+<!--Beginning of dynamic card-->
+
+<section class="page-section cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner text-center rounded">
+          <h2 class="section-heading mb-4">
+            
+            <!---This section is for a historical fact or a quote!--->
+            
+            <span class="section-heading-upper">Our Mission</span>
+            <!--<span class="section-heading-lower">To You</span>-->
+          
+          </h2>
+          
+          <p class="mb-0">Join the recipe sharing comnunity, share grow and learn how to make wonderful dishes
+          from around the globe.</p>
         </div>
       </div>
     </div>
   </div>
+</section>
+ <div class="row">
+      {% for item in recipe_data %}
 
-  <!------------More information for the user----------->
-
-  <section class="page-section cta">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-9 mx-auto">
-          <div class="cta-inner text-center rounded">
-            <h2 class="section-heading mb-4">
-              <span class="section-heading-upper">Our Promise</span>
-              <span class="section-heading-lower">To You</span>
-            </h2>
-            <p class="mb-0">Join the recipe sharing comnunity</p>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="/static/uploads/images/{{item.Images}}" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="/recipe/{{item.Recipe_name}}">{{item.Recipe_name}}</a>
+              <h4>By: {{item.User_name}}</h4>
+              <br>
+              <h4>Allergen: {{item.Allergen_name}}</h4>
+              <br>
+              <h4>Category: {{item.Category_name}}</h4>
+              <br>
+              <h4>Cusine Type: {{item.WorldCuisine_name}}</h4>
           </div>
         </div>
       </div>
+      {% endfor %}
+     
     </div>
-  </section>
-  {% endblock %}
-  
-  
+
+<!--end of card-->
+<!------------Advertisment information for the user----------->
+
+{% endblock %}

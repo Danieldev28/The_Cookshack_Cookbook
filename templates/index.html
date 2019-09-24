@@ -12,11 +12,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/07e47bec87.js"></script>
+  <script type="text/javascript" src="{{url_for('static' , filename= 'js/main.js')}}"></script>
   <link rel="stylesheet" href="{{url_for('static' , filename= 'css/modern-business.css')}}" type="text/css" />
   <link rel="stylesheet" href="{{url_for('static' , filename= 'vendor/bootstrap/css/bootstrap.min.css')}}" type="text/css" />
-  <!--<link rel="stylesheet" type="text/css" href="{{url_for('static' , filename= 'css/style.css')}}">-->
-  <script type="text/javascript" src="{{url_for('static' , filename= 'js/main.js')}}"></script>
-  <title>The Cookshack Cookbook</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static' , filename= 'css/style.css')}}">
+
+  <title class="main-cite-heading">The Cookshack Cookbook</title>
 </head>
 <!-- Navigation -->
 
@@ -33,20 +34,14 @@
           <li class="nav-item">
             <a class="nav-link" href="/">Home</a>
           </li>
-          <!--<li class="nav-item">-->
-          <!--  <a class="nav-link" href="services.html">Services</a>-->
-          <!--</li>-->
           <li class="nav-item">
             <a class="nav-link" href="{{url_for('addrecipe')}}"> Add Recipe</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url_for('register')}}"> Register</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  <div class="container">
+  <div class="container slide">
 
     {% block content %} {% endblock %}
   </div>
@@ -57,29 +52,34 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
+
       <div class="carousel-inner" role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url('http://placehold.it/1900x1080')">
+        <div class="carousel-item active" style="background-image: url('static/images/bowl-cuisine-delicious-1640773.jpg')">
           <div class="carousel-caption d-none d-md-block">
-            <h3>First Slide</h3>
-            <p>This is a description for the first slide.</p>
+            <h3>Bowl Cuisine</h3>
+            <p>Deliscious potato fries and dip, and garnish.</p>
           </div>
         </div>
+
         <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+        <div class="carousel-item" style="background-image: url('static/images/bowl-close-up-cuisine-2942319.jpg')">
           <div class="carousel-caption d-none d-md-block">
-            <h3>Second Slide</h3>
-            <p>This is a description for the second slide.</p>
+            <h3>Bowl close up</h3>
+            <p>Steamed rice and vegetables.</p>
           </div>
         </div>
+
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+        <div class="carousel-item" style="background-image: url('static/images/basil-blur-close-up-1437267.jpg')">
           <div class="carousel-caption d-none d-md-block">
-            <h3>Third Slide</h3>
-            <p>This is a description for the third slide.</p>
+
+            <h3>Basil penne</h3>
+            <p>Basil and penne, topped with cheessy goodness.</p>
           </div>
         </div>
       </div>
+
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
@@ -92,115 +92,73 @@
   </header>
 
   <!-- Page Content -->
-  <div class="container">
 
-    <h1 class="my-4">Welcome to Modern Business</h1>
+  <div class="container backdrop-image">
+
+    <h1 class="my-4">Welcome To Cookshack</h1>
 
     <!--<h2>Portfolio Heading</h2>-->
+    <div class="row backdrop-image">
+      {% for item in recipe_data %}
 
-    <div class="row">
       <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <a href="#"><img class="card-img-top" src="/static/uploads/images/{{item.Images}}" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
-              <a href="#">Project One</a>
-            </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+              <a href="/recipe/{{item.Recipe_name}}">{{item.Recipe_name}}</a>
+              <h4>By: {{item.User_name}}</h4>
+              <br>
+              <h4>Allergen: {{item.Allergen_name}}</h4>
+              <br>
+              <h4>Category: {{item.Category_name}}</h4>
+              <br>
+              <h4>Cusine Type: {{item.WorldCuisine_name}}</h4>
           </div>
         </div>
       </div>
-      <!--<div class="col-lg-4 col-sm-6 portfolio-item">-->
-      <!--  <div class="card h-100">-->
-      <!--    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>-->
-      <!--    <div class="card-body">-->
-      <!--      <h4 class="card-title">-->
-      <!--        <a href="#">Project Two</a>-->
-      <!--      </h4>-->
-      <!--      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>-->
-      <!--    </div>-->
-      <!--  </div>-->
-      <!--</div>-->
-      <!--<div class="col-lg-4 col-sm-6 portfolio-item">-->
-      <!--  <div class="card h-100">-->
-      <!--    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>-->
-      <!--    <div class="card-body">-->
-      <!--      <h4 class="card-title">-->
-      <!--        <a href="#">Project Three</a>-->
-      <!--      </h4>-->
-      <!--      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>-->
-      <!--    </div>-->
-      <!--  </div>-->
-      <!--</div>-->
-      <!--<div class="col-lg-4 col-sm-6 portfolio-item">-->
-      <!--  <div class="card h-100">-->
-      <!--    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>-->
-      <!--    <div class="card-body">-->
-      <!--      <h4 class="card-title">-->
-      <!--        <a href="#">Project Four</a>-->
-      <!--      </h4>-->
-      <!--      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>-->
-      <!--    </div>-->
-      <!--  </div>-->
-      <!--</div>-->
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Project Five</a>
-            </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Project Six</a>
-            </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
+
     </div>
-    <!-- /.row -->
 
-    <!-- Features Section -->
-    <div class="row">
-      <div class="col-lg-6">
-        <h2>Modern Business Features</h2>
-        <p>The Modern Business template by Start Bootstrap includes:</p>
-        <ul>
-          <li>
-            <strong>Bootstrap v4</strong>
-          </li>
-          <li>jQuery</li>
-          <li>Font Awesome</li>
-          <li>Working contact form with validation</li>
-          <li>Unstyled page elements for easy customization</li>
-        </ul>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-      </div>
-      <div class="col-lg-6">
-        <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
-      </div>
-    </div>
-    <!-- /.row -->
-
-    <hr>
   </div>
-  <!-- /.container -->
 
-  <!-- Footer -->
-  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+
+  <div class="carousel-inner" role="listbox">
+    <!-- Slide One - Set the background image for this slide in the line below -->
+    <div class="carousel-item active" style="background-image: url('static/images/assorted-fruits-close-up-colorful-2955817.jpg')">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Fruit Cups</h3>
+        <p>Assorted fruit parfait paradise.</p>
+      </div>
     </div>
+  </div>
+
+
+
+  <!--------------------- Footer -->
+
+  <footer class="py-5 bg-dark">
+
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Chefsunited Enterprises 2019</p>
+    </div>
+
+    <!--Search Bar----->
+    <!--Come back and fix this link for style alignment or delete-->
+    <div class="col-md-6">
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control form-control-lg mr-sm-0 col-8
+                                 border-right-0 " style="border-radius: 5px 0px 0px 5px; " type="search" placeholder="What Do You Want To Eat?" aria-label="Search">
+
+        <button class="btn btn-light btn-lg my-2 my-sm-0 col-2 border-left-0" style="border-radius: 0px 5px 5px 0px;" type="submit"><i class="fas text-danger fa-search"></i></button>
+      </form>
+    </div>
+
+
     <!-- /.container -->
   </footer>
+
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

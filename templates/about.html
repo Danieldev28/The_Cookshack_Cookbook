@@ -1,0 +1,42 @@
+<!--Dynamic display of each user recipe card individually, view recipe and instruction details-->
+
+{% extends 'base.html' %} {% block menu %}
+<ul class="navbar-nav ml-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="/">Home</a>
+  </li>
+</ul>
+{% endblock %} {% block content %}
+
+<!--card to dipsay full recipe to user to use edit modify boostrap theme-->
+<div class="card mb-3">
+  <img src="/static/uploads/images/{{recipe.Images}}" class="card-img-top" alt="Profile image for {{recipe.name}}">
+  <div class="card-body">
+    <h5 class="card-title">{{ recipe.Recipe_name }}</h5>
+    <p class="card-text">{{recipe.Ingredients}}</p>
+    <p class="card-text">{{recipe.Instructions}}</p>
+    <p class="card-text">Allergen: {{recipe.Allergen_name}}</p>
+    <p class="card-text">Cuisine Type: {{recipe.WorldCuisine_name}}</p>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  </div>
+</div>
+
+<!--<img src="..." class="card-img-top" alt="...">-->
+<!--</div>-->
+<!--end of card-->
+
+<!--<div class="row">-->
+<!--  <div class="col-md-5">-->
+<!--    <img src="/static/uploads/images/{{recipe.Images}}" alt="Profile image for {{recipe.name}}" height='300px' width='300px' />-->
+<!--    <h2 class="col-md-7">{{ recipe.Recipe_name }}</h2>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<div class="col-md-12">-->
+<!--  <p>{{ recipe.Ingredients }}</p>-->
+<!--  <p>{{ recipe.Instructions }}</p>-->
+<!--  <p>{{ recipe.Allergen }}</p>-->
+<!--  <p>{{ recipe.Category}}</p>-->
+<!--  <p>{{ recipe.WorldCuisine}}</p>-->
+<!--</div>-->
+{% endblock %}
