@@ -16,6 +16,7 @@ connection = pymysql.connect(host='my-database-class.crgear1afurv.ca-central-1.r
                              password='12345678',
                              db='Cookshack')
                              
+# ----Routing to joining tables together for display---
 
 @app.route("/")
 def index():
@@ -64,7 +65,7 @@ def addrecipe():
                 flash("Thanks {} , for submitting your information".format
                 (request.form["name"]))
         else:
-            print(request.form['ingredients'], "ingredien")
+            print(request.form['ingredients'], "ingredients")
             with connection.cursor(pymysql.cursors.DictCursor) as cursor:
                 sql = """ SELECT MAX(User_ID) FROM Users"""
                 cursor.execute(sql)
@@ -86,7 +87,7 @@ def addrecipe():
                 connection.commit()
     return render_template("addrecipe.html", recipe_data = list_of_recipes)
                                  
-
+# Renders template and injects information from form into dynamic display page, about
 @app.route("/about")
 def about():
     return render_template("about.html")
@@ -108,7 +109,7 @@ def about_recipe(name):
 if __name__=="__main__":
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=True) 
+            debug=False) 
             
 
 

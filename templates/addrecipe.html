@@ -55,7 +55,7 @@
 
 <hr>
 
-<!-------------------------------The user information recipe form----->
+<!-------------------------------The user recipe information sumbmission form----->
 
 <form method="POST" style="display:none;" id="recipe_form" enctype='multipart/form-data'>
   <div class="form-row">
@@ -123,7 +123,7 @@
   <input type="submit" name="btn" class="btn btn-primary" value="+ Add New Recipe">
 </form>
 
-<!---This toggles the user recipe form into focus for user information entry--->
+<!---This toggles the user recipe form into focus upon submit click, for user information entry--->
 
 <div class="row">
   {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
@@ -142,17 +142,12 @@
       <div class="col-xl-9 mx-auto">
         <div class="cta-inner text-center rounded">
           <h2 class="section-heading mb-4">
-
-            <!---This section is for a historical fact or a quote!--->
-
             <span class="section-heading-upper">Our Mission</span>
             <hr>
-            <!--<span class="section-heading-lower">To You</span>-->
-
           </h2>
 
           <p class="mb-0">Join the recipe sharing comnunity, share grow and learn how to make wonderful dishes from around the globe.</p>
-         <br>
+          <br>
         </div>
       </div>
     </div>
@@ -182,6 +177,5 @@
 </div>
 
 <!--end of card-->
-<!------------Advertisment information for the user----------->
 
 {% endblock %}

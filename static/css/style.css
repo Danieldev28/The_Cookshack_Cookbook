@@ -1,37 +1,33 @@
-/*@import url('https://fonts.googleapis.com/css?family=Karla|Playfair+Display&display=swap');*/
+/*Google fonts*/
 
-/*</style>*/
-
-/*font-family: 'Playfair Display', serif;*/
-
-/*font-family: 'Karla', sans-serif;*/
+@import url('https://fonts.googleapis.com/css?family=Karla|Playfair+Display&display=swap');
 
 .main-cite-heading {
- font-family: 'Karla', sans-serif;
-    /*not worrking*/
+    font-family: 'Karla', sans-serif;
+
 }
 
+/*------------------Body background image and header styling--------------*/
 body {
-     background-image: url("/static/images/louis-hansel-07WiD_25UUE-unsplash.jpg");
-     width:100%;
-     height:100%;
+    background-image: url("/static/images/louis-hansel-07WiD_25UUE-unsplash.jpg");
+    width: 100%;
+    height: 100%;
 }
 
 .slide {
-    background:none;
+    background: none;
 }
 
-.my-4{
-    color:white;
+.my-4 {
+    color: white;
     font-family: 'Playfair Display', serif;
 }
 
 .user-recipe-title {
-   font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', serif;
 }
 
+/*-----------------The user recipe information form toggle------------------*/
 #recipe_form {
     display: none;
 }
-
-
