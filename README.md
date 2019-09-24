@@ -38,18 +38,17 @@ recipe ideas to cook from. It also features a second form submission page which
 the user can interact and input thier own recipes, building the cookshack community.
 
 Users can:
-
 Add Recipe: There is a user form which you can submit your recipes, aswell as an 
 image for the recipe sharing community
 Manage Categories: Choose from which category they would like to create a recipe
-and also choose one to cook based on the cards having simmple identification 
+and also choose one to cook based on the cards having simple identification 
 features
 Recipe Detail: Once a recipe is clicked it displays the full recipe and instructions
 to the user for easy use of the information given
 Featured Desserts: View featured desserts in the dessert section at the bootom of 
 the home page
 
-###Demo
+### Demo
 A demo of this web application is available here.
 
 <a href="https://the-cookshack-cookbook.herokuapp.com">here</a>
