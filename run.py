@@ -12,8 +12,8 @@ app.config['IMAGE_UPLOADS'] = "static/uploads/images"
 # # Connect to the database
 
 connection = pymysql.connect(host='my-database-class.crgear1afurv.ca-central-1.rds.amazonaws.com',
-                             user='root',
-                             password='12345678',
+                             user='',
+                             password='',
                              db='Cookshack')
                              
 # ----Routing to joining tables together for display---
