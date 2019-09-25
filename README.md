@@ -84,7 +84,7 @@ to mySQL database seemed to be very difficult, but as time went on, it became
 much easier to handle the syntax and create my relational database. Also handling 
 routing in python was somtimes tricky due to running on flask framework which
 kept throwing errors, which I was able to solve with help during the development
-process. I was also able to test the CURD functions create,update,read,delete 
+process. I was also able to test the CRUD functions create,update,read,delete 
 while creating a relational database.
 
 
