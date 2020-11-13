@@ -6,14 +6,22 @@ from flask_mail import Mail, Message
 
 app = Flask(__name__)
 app.secret_key= "secret_word"
+#uncomment
 app.config['IMAGE_UPLOADS'] = "static/uploads/images"
+# username = os.getenv('C9_USER')
 
 # ----For connectionto pymysql database---?
 # # Connect to the database
+# remove
+# connection = pymysql.connect(host='localhost',
+#                              user=username,
+#                              password='',
+#                              db='Cookshack')
+
 
 connection = pymysql.connect(host='my-database-class.crgear1afurv.ca-central-1.rds.amazonaws.com',
-                             user='',
-                             password='',
+                             user='root',
+                             password='12345678',
                              db='Cookshack')
                              
 # ----Routing to joining tables together for display---
